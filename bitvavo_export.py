@@ -28,15 +28,24 @@ def sign_request(method, path, body=''):
     }
 
 def fetch_trades():
-    r = requests.get(API_URL + "/trades?market=BTC-EUR&limit=500", headers=sign_request("GET", "/trades?market=BTC-EUR&limit=500"))
+    url = "/trades?market=BTC-EUR&limit=500"
+    r = requests.get(API_URL + url, headers=sign_request("GET", url))
+    print("🔄 Trades Antwort:", r.status_code, r.text)
     return r.json()
 
 def get_balance():
-    r = requests.get(API_URL + "/balance/BTC", headers=sign_request("GET", "/balance/BTC"))
-    return float(r.json().get("available", 0))
+    url = "/balance/BTC"
+    r = requests.get(API_URL + url, headers=sign_request("GET", url))
+    print("🔄 Balance Antwort:", r.status_code, r.text)
+    try:
+        return float(r.json().get("available", 0))
+    except Exception as e:
+        print("❌ Fehler beim Parsen von BTC-Balance:", str(e))
+        return 0.0
 
 def get_current_price():
     r = requests.get("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=eur")
+    print("🔄 BTC-Preis Antwort:", r.status_code, r.text)
     return float(r.json()["bitcoin"]["eur"])
 
 def save_to_github(data):
@@ -60,7 +69,7 @@ def save_to_github(data):
 
     r = requests.put(url, headers=headers, data=json.dumps(payload))
     if r.status_code not in [200, 201]:
-        print("Fehler beim Pushen:", r.status_code, r.text)
+        print("❌ Fehler beim Pushen:", r.status_code, r.text)
     else:
         print("✅ Datei erfolgreich aktualisiert")
 
