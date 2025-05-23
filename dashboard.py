@@ -53,7 +53,7 @@ def get_balance():
         st.text("Antwort vom Server:")
         st.text(r.text)
         st.stop()
-)
+
 
 # Fetch BTC price
 @st.cache_data(ttl=60)
