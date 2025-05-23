@@ -1,0 +1,14 @@
+services:
+  - type: cron
+    name: btc-export
+    runtime: python
+    buildCommand: "pip install requests"
+    startCommand: "python bitvavo_export.py"
+    schedule: "0 7 * * *"
+    envVars:
+      - key: API_KEY
+        sync: false
+      - key: API_SECRET
+        sync: false
+      - key: GITHUB_TOKEN
+        sync: false
