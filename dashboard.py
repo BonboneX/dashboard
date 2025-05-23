@@ -43,8 +43,17 @@ def fetch_trades():
 
 # Fetch BTC balance
 def get_balance():
-    r = requests.get(BASE_URL + "/balance/BTC", headers=sign_request("GET", "/balance/BTC"))
-    return float(r.json().get("available", 0))
+    try:
+        r = requests.get(BASE_URL + "/balance/BTC", headers=sign_request("GET", "/balance/BTC"))
+        r.raise_for_status()  # wirft Fehler bei HTTP 4xx/5xx
+        data = r.json()
+        return float(data.get("available", 0))
+    except Exception as e:
+        st.error("❌ Fehler beim Abrufen des BTC-Bestands")
+        st.text("Antwort vom Server:")
+        st.text(r.text)
+        st.stop()
+)
 
 # Fetch BTC price
 @st.cache_data(ttl=60)
