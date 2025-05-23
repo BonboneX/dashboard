@@ -68,10 +68,16 @@ if data:
     # BTC Bestand kumuliert
     buys["cumulative_btc"] = buys["amount"].cumsum()
 
-    # Echte Closing Preise auf Basis der API vorbereiten
+    # Closing-Preise oder Fallback mit aktuellem Preis
     prices = data.get("daily_prices", {})
     buys["date_str"] = buys["date"].astype(str)
     buys["closing_price"] = buys["date_str"].map(prices)
+
+    # Aktuellen Preis für letzte Zeile einsetzen, wenn kein Preis verfügbar
+    if current_btc_price and buys["closing_price"].isna().any():
+        latest_date = buys["date_str"].max()
+        buys.loc[buys["date_str"] == latest_date, "closing_price"] = current_btc_price
+
     buys["portfolio_value"] = buys["cumulative_btc"] * buys["closing_price"]
 
     # Gesamtwerte
