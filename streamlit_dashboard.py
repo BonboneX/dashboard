@@ -31,14 +31,14 @@ if data:
     trades["price"] = trades["price"].astype(float)
     trades["fee"] = trades["fee"].astype(float)
     trades["timestamp"] = pd.to_datetime(trades["timestamp"], unit="ms")
-# Test-Transaktionen filtern
-test_timestamps = [
-    "2025-05-22 21:48:46",
-    "2025-05-22 21:45:09",
-    "2025-05-22 18:40:26"
-]
-trades = trades[~trades["timestamp"].dt.strftime("%Y-%m-%d %H:%M:%S").isin(test_timestamps)]
 
+    # Test-Transaktionen ausschließen
+    test_timestamps = [
+        "2025-05-22 21:48:46",
+        "2025-05-22 21:45:09",
+        "2025-05-22 18:40:26"
+    ]
+    trades = trades[~trades["timestamp"].dt.strftime("%Y-%m-%d %H:%M:%S").isin(test_timestamps)]
 
     buys = trades[trades["side"] == "buy"].copy()
     sells = trades[trades["side"] == "sell"].copy()
