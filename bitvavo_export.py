@@ -4,7 +4,7 @@ import time
 import hmac
 import hashlib
 import requests
-from datetime import datetime
+from datetime import datetime, timedelta
 import base64
 
 # Konfiguration
@@ -14,6 +14,7 @@ GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 REPO = "BonboneX/dashboard"
 FILENAME = "btc_data.json"
 API_URL = "https://api.bitvavo.com/v2"
+
 
 def sign_request(method, path, body=''):
     timestamp = str(int(time.time() * 1000))
@@ -27,22 +28,20 @@ def sign_request(method, path, body=''):
         'Content-Type': 'application/json'
     }
 
+
 def fetch_trades():
     url = "/trades?market=BTC-EUR&limit=500"
     r = requests.get(API_URL + url, headers=sign_request("GET", url))
     print("🔄 Trades Antwort:", r.status_code, r.text)
     return r.json()
 
+
 def get_balance():
-    url = "/balance"
+    url = "/balance/BTC"
     r = requests.get(API_URL + url, headers=sign_request("GET", url))
     print("🔄 Balance Antwort:", r.status_code, r.text)
     try:
-        balances = r.json()
-        for asset in balances:
-            if asset["symbol"] == "BTC":
-                return float(asset["available"])
-        return 0.0
+        return float(r.json().get("available", 0))
     except Exception as e:
         print("❌ Fehler beim Parsen von BTC-Balance:", str(e))
         return 0.0
@@ -51,11 +50,21 @@ def get_balance():
 def get_current_price():
     r = requests.get("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=eur")
     print("🔄 BTC-Preis Antwort:", r.status_code, r.text)
+    return float(r.json()["bitcoin"]["eur"])
+
+
+def get_yesterday_closing_price():
     try:
-        return float(r.json()["bitcoin"]["eur"])
+        yesterday = datetime.utcnow() - timedelta(days=1)
+        date_str_display = yesterday.strftime("%Y-%m-%d")
+        date_str_query = yesterday.strftime("%d-%m-%Y")
+        url = f"https://api.coingecko.com/api/v3/coins/bitcoin/history?date={date_str_query}&localization=false"
+        r = requests.get(url)
+        price = r.json()["market_data"]["current_price"]["eur"]
+        return date_str_display, price
     except Exception as e:
-        print("⚠️ Fehler beim Abrufen des BTC-Preises:", str(e))
-        return 0.0  # oder z. B. ein Fallback-Wert wie 99999
+        print("⚠️ Fehler beim Abrufen des Vortages-Preises:", e)
+        return None, None
 
 
 def save_to_github(data):
@@ -65,7 +74,6 @@ def save_to_github(data):
         "Accept": "application/vnd.github.v3+json"
     }
 
-    # Bestehenden File-SHA holen
     get = requests.get(url, headers=headers)
     sha = get.json().get("sha", None)
 
@@ -83,20 +91,38 @@ def save_to_github(data):
     else:
         print("✅ Datei erfolgreich aktualisiert")
 
+
 def main():
     trades = fetch_trades()
     price = get_current_price()
     btc_balance = get_balance()
 
-    data = {
-        "timestamp": datetime.utcnow().isoformat(),
-        "btc_balance": btc_balance,
-        "btc_price_eur": price,
-        "trades": trades
-    }
+    # Bestehende Daten laden
+    url = f"https://raw.githubusercontent.com/{REPO}/main/{FILENAME}"
+    try:
+        existing = requests.get(url).json()
+    except:
+        existing = {}
 
-    json_data = json.dumps(data, indent=2)
+    # Daily Prices initialisieren & fixen Preis setzen
+    if "daily_prices" not in existing:
+        existing["daily_prices"] = {}
+    existing["daily_prices"]["2025-05-22"] = 98308.00
+
+    # Closing Price für gestern hinzufügen
+    yday_key, yday_price = get_yesterday_closing_price()
+    if yday_key and yday_price:
+        existing["daily_prices"][yday_key] = yday_price
+
+    # Neue Daten eintragen
+    existing["timestamp"] = datetime.utcnow().isoformat()
+    existing["btc_balance"] = btc_balance
+    existing["btc_price_eur"] = price
+    existing["trades"] = trades
+
+    json_data = json.dumps(existing, indent=2)
     save_to_github(json_data)
+
 
 if __name__ == "__main__":
     main()
