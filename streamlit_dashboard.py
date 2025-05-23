@@ -20,7 +20,16 @@ def load_data():
         st.error(f"Fehler beim Laden der Daten: {e}")
         return None
 
+@st.cache_data(ttl=300)
+def get_current_btc_price():
+    try:
+        r = requests.get("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=eur")
+        return r.json()["bitcoin"]["eur"]
+    except:
+        return None
+
 data = load_data()
+current_btc_price = get_current_btc_price()
 
 if data:
     st.success("✅ Daten erfolgreich geladen")
@@ -60,15 +69,15 @@ if data:
     total_btc = buys["cumulative_btc"].iloc[-1]
     invested = (buys["amount"] * buys["price"] + buys["fee"]).sum()
     dca = invested / total_btc if total_btc > 0 else 0
-    current_value = buys["portfolio_value"].iloc[-1]
-    pnl = ((current_value - invested) / invested * 100) if invested > 0 else 0
+    live_value = total_btc * current_btc_price if current_btc_price else 0
+    pnl = ((live_value - invested) / invested * 100) if invested > 0 else 0
 
     # Metriken anzeigen
     col1, col2, col3, col4, col5 = st.columns(5)
     col1.metric("💰 BTC-Bestand", f"{total_btc:.8f} BTC")
     col2.metric("💶 Investiert", f"{invested:.2f} €")
     col3.metric("🧮 DCA", f"{dca:.2f} €/BTC")
-    col4.metric("📊 Aktueller Wert", f"{current_value:.2f} €")
+    col4.metric("📊 Aktueller Wert", f"{live_value:.2f} €")
     col5.metric("📈 Performance", f"{pnl:.2f} %")
 
     # Diagramm
