@@ -1,7 +1,7 @@
 {
-  "timestamp": "2025-05-23T20:44:15.076856",
-  "btc_balance": 0.00040755,
-  "btc_price_eur": 95471.0,
+  "timestamp": "2025-05-23T21:40:14.833375",
+  "btc_balance": 0.0,
+  "btc_price_eur": 95369.0,
   "trades": [
     {
       "id": "00000000-0000-0431-0000-0000026b04b4",
@@ -69,5 +69,8 @@
       "feeCurrency": "EUR",
       "settled": true
     }
-  ]
+  ],
+  "daily_prices": {
+    "2025-05-22": 96787.03367900707
+  }
 }
