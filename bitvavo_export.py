@@ -34,14 +34,19 @@ def fetch_trades():
     return r.json()
 
 def get_balance():
-    url = "/balance/BTC"
+    url = "/balance"
     r = requests.get(API_URL + url, headers=sign_request("GET", url))
     print("🔄 Balance Antwort:", r.status_code, r.text)
     try:
-        return float(r.json().get("available", 0))
+        balances = r.json()
+        for asset in balances:
+            if asset["symbol"] == "BTC":
+                return float(asset["available"])
+        return 0.0
     except Exception as e:
         print("❌ Fehler beim Parsen von BTC-Balance:", str(e))
         return 0.0
+
 
 def get_current_price():
     r = requests.get("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=eur")
