@@ -1,0 +1,73 @@
+{
+  "timestamp": "2025-05-23T20:40:23.488921",
+  "btc_balance": 0.0,
+  "btc_price_eur": 95474.0,
+  "trades": [
+    {
+      "id": "00000000-0000-0431-0000-0000026b04b4",
+      "orderId": "00000000-0000-0431-0100-0000e14b54ef",
+      "timestamp": 1747980020214,
+      "market": "BTC-EUR",
+      "side": "buy",
+      "amount": "0.00020417",
+      "price": "97709",
+      "taker": true,
+      "fee": "0.05075347",
+      "feeCurrency": "EUR",
+      "settled": true,
+      "clientOrderId": "80000000-0000-0000-8000-000000000000"
+    },
+    {
+      "id": "00000000-0000-0431-0000-0000026aed2a",
+      "orderId": "00000000-0000-0431-0100-0000df663556",
+      "timestamp": 1747950636319,
+      "market": "BTC-EUR",
+      "side": "buy",
+      "amount": "0.00020338",
+      "price": "98090",
+      "taker": true,
+      "fee": "0.0504558",
+      "feeCurrency": "EUR",
+      "settled": true
+    },
+    {
+      "id": "00000000-0000-0431-0000-0000026aed0f",
+      "orderId": "00000000-0000-0431-0100-0000df656ff2",
+      "timestamp": 1747950526716,
+      "market": "BTC-EUR",
+      "side": "sell",
+      "amount": "0.00111593",
+      "price": "98088",
+      "taker": true,
+      "fee": "0.27934184",
+      "feeCurrency": "EUR",
+      "settled": true
+    },
+    {
+      "id": "00000000-0000-0431-0000-0000026aece6",
+      "orderId": "00000000-0000-0431-0100-0000df6402f7",
+      "timestamp": 1747950309542,
+      "market": "BTC-EUR",
+      "side": "buy",
+      "amount": "0.00091466",
+      "price": "98211",
+      "taker": true,
+      "fee": "0.23032674",
+      "feeCurrency": "EUR",
+      "settled": true
+    },
+    {
+      "id": "00000000-0000-0431-0000-0000026ad75c",
+      "orderId": "00000000-0000-0431-0100-0000ded6bcb4",
+      "timestamp": 1747939226403,
+      "market": "BTC-EUR",
+      "side": "buy",
+      "amount": "0.00020127",
+      "price": "99117",
+      "taker": true,
+      "fee": "0.05072141",
+      "feeCurrency": "EUR",
+      "settled": true
+    }
+  ]
+}
