@@ -58,11 +58,10 @@ if data:
     st.code(f"{dca:.2f} € pro BTC", language="text")
 
     st.markdown("#### 📉 BTC-Wertentwicklung (visualisiert)")
-    buys["date"] = buys["timestamp"].dt.date
-    buys["eur_value"] = buys["amount"] * buys["price"]
-    daily = buys.groupby("date")["eur_value"].sum().cumsum().reset_index()
-    daily.columns = ["Datum", "Investiert (EUR)"]
-    st.line_chart(daily.set_index("Datum"))
+    buys["cumulative_invested"] = (buys["eur_value"] + buys["fee"]).cumsum()
+    buys["label"] = buys["timestamp"].dt.strftime("%Y-%m-%d %H:%M:%S")
+    chart_data = buys[["timestamp", "cumulative_invested"]].set_index("timestamp")
+    st.line_chart(chart_data)
 
     st.markdown("#### 📜 Transaktionen")
     st.dataframe(trades[["timestamp", "side", "amount", "price", "fee"]].sort_values("timestamp", ascending=False), use_container_width=True)
