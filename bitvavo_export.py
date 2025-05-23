@@ -46,7 +46,12 @@ def get_balance():
 def get_current_price():
     r = requests.get("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=eur")
     print("🔄 BTC-Preis Antwort:", r.status_code, r.text)
-    return float(r.json()["bitcoin"]["eur"])
+    try:
+        return float(r.json()["bitcoin"]["eur"])
+    except Exception as e:
+        print("⚠️ Fehler beim Abrufen des BTC-Preises:", str(e))
+        return 0.0  # oder z. B. ein Fallback-Wert wie 99999
+
 
 def save_to_github(data):
     url = f"https://api.github.com/repos/{REPO}/contents/{FILENAME}"
