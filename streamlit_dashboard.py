@@ -106,9 +106,9 @@ if data:
     col5.metric("📈 Performance", f"{pnl:.2f} %")
 
     # Diagramm
-    st.markdown("#### 📉 Portfolio-Wertentwicklung")
+    st.markdown("#### 🖊️ Portfolio-Wertentwicklung")
     chart = alt.Chart(plot_data.dropna(subset=["portfolio_value"])).mark_line(point=True).encode(
-        x=alt.X("date:T", title="Datum", axis=alt.Axis(format="%Y-%m-%d", labelAngle=-45)),
+        x=alt.X("date:T", title="Datum", axis=alt.Axis(format="%Y-%m-%d", labelAngle=-45, labelOverlap=False, labelExpr='datum.value')),
         y=alt.Y("portfolio_value:Q", title="Portfoliowert (€)"),
         tooltip=["date_str", "portfolio_value"]
     ).properties(width=1000, height=400)
