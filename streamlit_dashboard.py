@@ -108,7 +108,7 @@ if data:
     # Diagramm
     st.markdown("#### 🖊️ Portfolio-Wertentwicklung")
     chart = alt.Chart(plot_data.dropna(subset=["portfolio_value"])).mark_line(point=True).encode(
-        x=alt.X("date:T", title="Datum", axis=alt.Axis(format="%Y-%m-%d", labelAngle=-45, labelOverlap=False, labelExpr='datum.value')),
+        x=alt.X("date:T", title="Datum", axis=alt.Axis(format="%Y-%m-%d", labelAngle=-45, labelOverlap=True, values=plot_data["date"].dt.strftime("%Y-%m-%d").unique().tolist())),
         y=alt.Y("portfolio_value:Q", title="Portfoliowert (€)"),
         tooltip=["date_str", "portfolio_value"]
     ).properties(width=1000, height=400)
