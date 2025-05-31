@@ -28,20 +28,8 @@ def get_current_btc_price():
     except:
         return None
 
-@st.cache_data(ttl=3600)
-def get_yesterday_closing_price():
-    try:
-        yesterday = datetime.today() - timedelta(days=1)
-        date_str = yesterday.strftime("%d-%m-%Y")
-        url = f"https://api.coingecko.com/api/v3/coins/bitcoin/history?date={date_str}&localization=false"
-        r = requests.get(url)
-        return date_str, r.json()["market_data"]["current_price"]["eur"]
-    except:
-        return None, None
-
 data = load_data()
 current_btc_price = get_current_btc_price()
-yesterday_str, closing_price = get_yesterday_closing_price()
 
 if data:
     st.success("✅ Daten erfolgreich geladen")
@@ -108,7 +96,7 @@ if data:
     # Diagramm
     st.markdown("#### 🖊️ Portfolio-Wertentwicklung")
     chart = alt.Chart(plot_data.dropna(subset=["portfolio_value"])).mark_line(point=True).encode(
-        x=alt.X("date:T", title="Datum", axis=alt.Axis(format="%Y-%m-%d", labelAngle=-45, labelOverlap=True, values=plot_data["date"].dt.strftime("%Y-%m-%d").unique().tolist())),
+        x=alt.X("date:T", title="Datum", axis=alt.Axis(format="%Y-%m-%d", labelAngle=-45, values=plot_data["date"].dt.to_pydatetime().tolist())),
         y=alt.Y("portfolio_value:Q", title="Portfoliowert (€)"),
         tooltip=["date_str", "portfolio_value"]
     ).properties(width=1000, height=400)
