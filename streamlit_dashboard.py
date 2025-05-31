@@ -80,6 +80,13 @@ if data:
 
     buys["portfolio_value"] = buys["cumulative_btc"] * buys["closing_price"]
 
+    # Lückenhafte Tage einfügen
+    full_range = pd.date_range(start=buys["date"].min(), end=datetime.today().date())
+    full_df = pd.DataFrame({"date": full_range})
+    full_df["date_str"] = full_df["date"].astype(str)
+    merged = pd.merge(full_df, buys, on="date_str", how="left")
+    merged = merged.ffill()  # Werte übernehmen, auch wenn keine neue Transaktion stattfindet
+
     # Gesamtwerte
     total_btc = buys["cumulative_btc"].iloc[-1]
     invested = (buys["amount"] * buys["price"] + buys["fee"]).sum()
@@ -97,8 +104,8 @@ if data:
 
     # Diagramm
     st.markdown("#### 📉 Portfolio-Wertentwicklung")
-    chart = alt.Chart(buys.dropna(subset=["portfolio_value"])).mark_line(point=True).encode(
-        x=alt.X("date:T", title="Datum"),
+    chart = alt.Chart(merged.dropna(subset=["portfolio_value"])).mark_line(point=True).encode(
+        x=alt.X("date:T", title="Datum", axis=alt.Axis(format="%Y-%m-%d", labelAngle=-45)),
         y=alt.Y("portfolio_value:Q", title="Portfoliowert (€)"),
         tooltip=["date_str", "portfolio_value"]
     ).properties(width=1000, height=400)
