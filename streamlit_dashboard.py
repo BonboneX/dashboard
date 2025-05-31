@@ -73,19 +73,27 @@ if data:
     buys["date_str"] = buys["date"].astype(str)
     buys["closing_price"] = buys["date_str"].map(prices)
 
-    # Aktuellen Preis für letzte Zeile einsetzen, wenn kein Preis verfügbar
+    # Aktuellen Preis für den letzten bekannten Transaktionstag einsetzen, falls kein Closing-Preis verfügbar
     if current_btc_price and buys["closing_price"].isna().any():
-        latest_date = buys["date_str"].max()
-        buys.loc[buys["date_str"] == latest_date, "closing_price"] = current_btc_price
+        fallback_dates = buys.loc[buys["closing_price"].isna(), "date_str"].unique()
+        for date_str in fallback_dates:
+            buys.loc[buys["date_str"] == date_str, "closing_price"] = current_btc_price
 
     buys["portfolio_value"] = buys["cumulative_btc"] * buys["closing_price"]
 
-    # Lückenhafte Tage einfügen
+    # Lückenhafte Tage ergänzen mit forward fill
     full_range = pd.date_range(start=buys["date"].min(), end=datetime.today().date())
     full_df = pd.DataFrame({"date": full_range})
     full_df["date_str"] = full_df["date"].astype(str)
-    merged = pd.merge(full_df, buys, on="date_str", how="left")
-    merged = merged.ffill()  # Werte übernehmen, auch wenn keine neue Transaktion stattfindet
+
+    plot_data = pd.merge(full_df, buys[["date_str", "cumulative_btc"]], on="date_str", how="left")
+    plot_data = plot_data.sort_values("date")
+    plot_data["cumulative_btc"] = plot_data["cumulative_btc"].ffill()
+    plot_data["portfolio_value"] = plot_data["cumulative_btc"] * plot_data["date_str"].map(prices)
+
+    # Fallback für aktuelle Tage, wenn kein Preis vorhanden
+    if current_btc_price:
+        plot_data["portfolio_value"] = plot_data["portfolio_value"].fillna(plot_data["cumulative_btc"] * current_btc_price)
 
     # Gesamtwerte
     total_btc = buys["cumulative_btc"].iloc[-1]
@@ -104,7 +112,7 @@ if data:
 
     # Diagramm
     st.markdown("#### 📉 Portfolio-Wertentwicklung")
-    chart = alt.Chart(merged.dropna(subset=["portfolio_value"])).mark_line(point=True).encode(
+    chart = alt.Chart(plot_data.dropna(subset=["portfolio_value"])).mark_line(point=True).encode(
         x=alt.X("date:T", title="Datum", axis=alt.Axis(format="%Y-%m-%d", labelAngle=-45)),
         y=alt.Y("portfolio_value:Q", title="Portfoliowert (€)"),
         tooltip=["date_str", "portfolio_value"]
