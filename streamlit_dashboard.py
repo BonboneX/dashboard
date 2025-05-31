@@ -73,11 +73,9 @@ if data:
     buys["date_str"] = buys["date"].astype(str)
     buys["closing_price"] = buys["date_str"].map(prices)
 
-    # Aktuellen Preis für den letzten bekannten Transaktionstag einsetzen, falls kein Closing-Preis verfügbar
-    if current_btc_price and buys["closing_price"].isna().any():
-        fallback_dates = buys.loc[buys["closing_price"].isna(), "date_str"].unique()
-        for date_str in fallback_dates:
-            buys.loc[buys["date_str"] == date_str, "closing_price"] = current_btc_price
+    # Fehlende Closing-Preise mit letztem bekannten Preis füllen
+    buys = buys.sort_values("date")
+    buys["closing_price"] = buys["closing_price"].ffill()
 
     buys["portfolio_value"] = buys["cumulative_btc"] * buys["closing_price"]
 
@@ -86,14 +84,11 @@ if data:
     full_df = pd.DataFrame({"date": full_range})
     full_df["date_str"] = full_df["date"].astype(str)
 
-    plot_data = pd.merge(full_df, buys[["date_str", "cumulative_btc"]], on="date_str", how="left")
+    plot_data = pd.merge(full_df, buys[["date_str", "cumulative_btc", "closing_price"]], on="date_str", how="left")
     plot_data = plot_data.sort_values("date")
     plot_data["cumulative_btc"] = plot_data["cumulative_btc"].ffill()
-    plot_data["portfolio_value"] = plot_data["cumulative_btc"] * plot_data["date_str"].map(prices)
-
-    # Fallback für aktuelle Tage, wenn kein Preis vorhanden
-    if current_btc_price:
-        plot_data["portfolio_value"] = plot_data["portfolio_value"].fillna(plot_data["cumulative_btc"] * current_btc_price)
+    plot_data["closing_price"] = plot_data["closing_price"].ffill()
+    plot_data["portfolio_value"] = plot_data["cumulative_btc"] * plot_data["closing_price"]
 
     # Gesamtwerte
     total_btc = buys["cumulative_btc"].iloc[-1]
