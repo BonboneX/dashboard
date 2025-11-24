@@ -1,8 +1,22 @@
 {
-  "timestamp": "2025-11-23T06:01:23.757958",
-  "btc_balance": 0.07849763,
-  "btc_price_eur": 75021.0,
+  "timestamp": "2025-11-24T06:01:19.706965",
+  "btc_balance": 0.07882621,
+  "btc_price_eur": 75875.0,
   "trades": [
+    {
+      "id": "00000000-0000-0431-0000-000002cb99ea",
+      "orderId": "00000000-0000-0431-0100-00044c080c83",
+      "timestamp": 1763964075438,
+      "market": "BTC-EUR",
+      "side": "buy",
+      "amount": "0.00032858",
+      "price": "75871",
+      "taker": true,
+      "fee": "0.07030682",
+      "feeCurrency": "EUR",
+      "settled": true,
+      "clientOrderId": "80000000-0000-0000-8000-000000000000"
+    },
     {
       "id": "00000000-0000-0431-0000-000002caf5b5",
       "orderId": "00000000-0000-0431-0100-0004475bd1db",
@@ -14,8 +28,7 @@
       "taker": true,
       "fee": "0.07",
       "feeCurrency": "EUR",
-      "settled": true,
-      "clientOrderId": "80000000-0000-0000-8000-000000000000"
+      "settled": true
     },
     {
       "id": "00000000-0000-0431-0000-000002ca790b",
