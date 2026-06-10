@@ -1,8 +1,21 @@
 {
-  "timestamp": "2026-06-09T06:01:11.179387",
-  "btc_balance": 0.29856838,
-  "btc_price_eur": 54861.0,
+  "timestamp": "2026-06-10T06:00:56.040609",
+  "btc_balance": 0.299038,
+  "btc_price_eur": 53091.0,
   "trades": [
+    {
+      "id": "00000000-0000-0431-0000-0000034d2aa9",
+      "orderId": "00000000-0000-0431-0100-00085d49d739",
+      "timestamp": 1781071251809,
+      "market": "BTC-EUR",
+      "side": "buy",
+      "amount": "0.00046962",
+      "price": "53085",
+      "taker": true,
+      "fee": "0.0702223",
+      "feeCurrency": "EUR",
+      "settled": true
+    },
     {
       "id": "00000000-0000-0431-0000-0000034cb881",
       "orderId": "00000000-0000-0431-0100-00085591f8ec",
