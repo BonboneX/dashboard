@@ -1,0 +1,70 @@
+{
+  "generated_at": "2026-08-03T21:48:17.614381+00:00",
+  "source": "BonboneX/dashboard/btc_data.json@main",
+  "target": "BonboneX/dashboard@main",
+  "btc_balance": 0.48406167,
+  "history_total": 37,
+  "history_btc_tx": 34,
+  "history_sum": 0.10331696,
+  "by_type": {
+    "buy": {
+      "n": 34,
+      "btc": 0.10331696,
+      "eur": 5785.46
+    }
+  },
+  "dashboard_trades": 398,
+  "dashboard_sum": 0.46175844,
+  "gap": 0.02230323,
+  "missing_count": 1,
+  "missing_sum": 0.00704746,
+  "fully_explained": false,
+  "missing_transactions": [
+    {
+      "transactionId": "77e2b47e-bb8a-463d-8dc8-fad52b03b4c5",
+      "executedAt": "2026-07-30T10:53:31.000Z",
+      "type": "buy",
+      "priceCurrency": "EUR",
+      "priceAmount": "56616",
+      "sentCurrency": "EUR",
+      "sentAmount": "399",
+      "receivedCurrency": "BTC",
+      "receivedAmount": "0.00704746",
+      "feesCurrency": "EUR",
+      "feesAmount": "1",
+      "address": null
+    }
+  ],
+  "price_check": [
+    {
+      "datum": "2026-08-03 06:01",
+      "price_aus_trades": 54410.0,
+      "sent_durch_received": 54410.0,
+      "sent_minus_fee_durch_received": 54270.0
+    },
+    {
+      "datum": "2026-08-03 06:01",
+      "price_aus_trades": 54412.0,
+      "sent_durch_received": 54412.0,
+      "sent_minus_fee_durch_received": 54276.84
+    },
+    {
+      "datum": "2026-08-02 06:01",
+      "price_aus_trades": 55017.0,
+      "sent_durch_received": 55017.0,
+      "sent_minus_fee_durch_received": 54879.08
+    },
+    {
+      "datum": "2026-08-01 06:01",
+      "price_aus_trades": 54643.0,
+      "sent_durch_received": 54643.0,
+      "sent_minus_fee_durch_received": 54506.04
+    },
+    {
+      "datum": "2026-07-31 06:01",
+      "price_aus_trades": 55868.0,
+      "sent_durch_received": 55868.0,
+      "sent_minus_fee_durch_received": 55727.87
+    }
+  ]
+}
