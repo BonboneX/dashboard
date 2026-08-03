@@ -1,0 +1,35 @@
+==========================================================================
+BITVAVO DIAGNOSE  2026-08-03T21:48:17.614381+00:00
+  Quelle : BonboneX/dashboard/btc_data.json @ main
+  Ziel   : BonboneX/dashboard @ main
+==========================================================================
+
+[1] Bestand laut /balance
+    0.48406167 BTC
+
+[2] /account/history abrufen
+   Seite 1/1 → 37 Einträge
+    37 Transaktionen gesamt, davon 34 mit BTC-Bewegung
+    Summe: 0.10331696 BTC   (Abweichung zum Bestand: +0.38074471)
+
+    Aufschlüsselung nach Typ:
+      buy                            34x  +0.10331696 BTC    5,785.46 EUR
+
+[3] btc_data.json aus GitHub laden
+    398 Trades, Summe 0.46175844 BTC
+    → Lücke gegenüber Bitvavo: +0.02230323 BTC
+
+[4] In /account/history, aber NICHT in der JSON: 1
+    Datum (UTC)          Typ                                 BTC        EUR  Kurs
+    2026-07-30 10:53:31  buy                         +0.00704746     399.00  56,616
+
+    Summe fehlend:    +0.00704746 BTC
+    Erwartete Lücke:  +0.02230323 BTC
+    ==> Rest ungeklärt, Typ-Aufschlüsselung oben prüfen ⚠️
+
+[5] Kurs-Gegenprobe (history vs. bereits bekannter Trade):
+    2026-08-03 06:01 | /trades:  54,410.00 | sent/received:  54,410.00 | (sent-fee)/received:  54,270.00
+    2026-08-03 06:01 | /trades:  54,412.00 | sent/received:  54,412.00 | (sent-fee)/received:  54,276.84
+    2026-08-02 06:01 | /trades:  55,017.00 | sent/received:  55,017.00 | (sent-fee)/received:  54,879.08
+    2026-08-01 06:01 | /trades:  54,643.00 | sent/received:  54,643.00 | (sent-fee)/received:  54,506.04
+    2026-07-31 06:01 | /trades:  55,868.00 | sent/received:  55,868.00 | (sent-fee)/received:  55,727.87
