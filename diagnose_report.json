@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-08-03T22:00:24.538837+00:00",
+  "generated_at": "2026-08-03T22:05:25.861659+00:00",
   "source": "BonboneX/dashboard/btc_data.json@main",
   "target": "BonboneX/dashboard@main",
-  "btc_balance": 0.48406167,
-  "history_total": 461,
-  "history_btc_tx": 402,
-  "history_sum": 0.48406167,
+  "btc_balance": 0.48768084,
+  "history_total": 462,
+  "history_btc_tx": 403,
+  "history_sum": 0.48768084,
   "by_type": {
     "buy": {
-      "n": 401,
-      "btc": 0.4851776,
-      "eur": 32611.84
+      "n": 402,
+      "btc": 0.48879677,
+      "eur": 32811.34
     },
     "sell": {
       "n": 1,
@@ -18,70 +18,13 @@
       "eur": 98088.0
     }
   },
-  "dashboard_trades": 398,
-  "dashboard_sum": 0.46175844,
-  "gap": 0.02230323,
-  "missing_count": 4,
-  "missing_sum": 0.02230323,
+  "dashboard_trades": 403,
+  "dashboard_sum": 0.48768084,
+  "gap": 0.0,
+  "missing_count": 0,
+  "missing_sum": 0.0,
   "fully_explained": true,
-  "missing_transactions": [
-    {
-      "transactionId": "49931615-a7b2-4599-a748-c6dba5be31bb",
-      "executedAt": "2026-06-24T18:11:27.000Z",
-      "type": "buy",
-      "priceCurrency": "EUR",
-      "priceAmount": "52834",
-      "sentCurrency": "EUR",
-      "sentAmount": "199.5",
-      "receivedCurrency": "BTC",
-      "receivedAmount": "0.00377596",
-      "feesCurrency": "EUR",
-      "feesAmount": "0.5",
-      "address": null
-    },
-    {
-      "transactionId": "546a41cb-4d99-484f-9695-220b366e1a5e",
-      "executedAt": "2026-06-28T15:27:07.000Z",
-      "type": "buy",
-      "priceCurrency": "EUR",
-      "priceAmount": "53064",
-      "sentCurrency": "EUR",
-      "sentAmount": "199.5",
-      "receivedCurrency": "BTC",
-      "receivedAmount": "0.00375962",
-      "feesCurrency": "EUR",
-      "feesAmount": "0.5",
-      "address": null
-    },
-    {
-      "transactionId": "3c412aa7-0ec2-42b4-8e12-426d5af52afb",
-      "executedAt": "2026-06-30T21:09:48.000Z",
-      "type": "buy",
-      "priceCurrency": "EUR",
-      "priceAmount": "51683",
-      "sentCurrency": "EUR",
-      "sentAmount": "399",
-      "receivedCurrency": "BTC",
-      "receivedAmount": "0.00772019",
-      "feesCurrency": "EUR",
-      "feesAmount": "1",
-      "address": null
-    },
-    {
-      "transactionId": "77e2b47e-bb8a-463d-8dc8-fad52b03b4c5",
-      "executedAt": "2026-07-30T10:53:31.000Z",
-      "type": "buy",
-      "priceCurrency": "EUR",
-      "priceAmount": "56616",
-      "sentCurrency": "EUR",
-      "sentAmount": "399",
-      "receivedCurrency": "BTC",
-      "receivedAmount": "0.00704746",
-      "feesCurrency": "EUR",
-      "feesAmount": "1",
-      "address": null
-    }
-  ],
+  "missing_transactions": [],
   "price_check": [
     {
       "datum": "2025-05-30 06:00",
