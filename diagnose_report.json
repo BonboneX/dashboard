@@ -1,25 +1,72 @@
 {
-  "generated_at": "2026-08-03T21:48:33.247304+00:00",
+  "generated_at": "2026-08-03T21:56:04.353137+00:00",
   "source": "BonboneX/dashboard/btc_data.json@main",
   "target": "BonboneX/dashboard@main",
   "btc_balance": 0.48406167,
-  "history_total": 37,
-  "history_btc_tx": 34,
-  "history_sum": 0.10331696,
+  "history_total": 461,
+  "history_btc_tx": 402,
+  "history_sum": 0.48406167,
   "by_type": {
     "buy": {
-      "n": 34,
-      "btc": 0.10331696,
-      "eur": 5785.46
+      "n": 401,
+      "btc": 0.4851776,
+      "eur": 32611.84
+    },
+    "sell": {
+      "n": 1,
+      "btc": -0.00111593,
+      "eur": 98088.0
     }
   },
   "dashboard_trades": 398,
   "dashboard_sum": 0.46175844,
   "gap": 0.02230323,
-  "missing_count": 1,
-  "missing_sum": 0.00704746,
-  "fully_explained": false,
+  "missing_count": 4,
+  "missing_sum": 0.02230323,
+  "fully_explained": true,
   "missing_transactions": [
+    {
+      "transactionId": "49931615-a7b2-4599-a748-c6dba5be31bb",
+      "executedAt": "2026-06-24T18:11:27.000Z",
+      "type": "buy",
+      "priceCurrency": "EUR",
+      "priceAmount": "52834",
+      "sentCurrency": "EUR",
+      "sentAmount": "199.5",
+      "receivedCurrency": "BTC",
+      "receivedAmount": "0.00377596",
+      "feesCurrency": "EUR",
+      "feesAmount": "0.5",
+      "address": null
+    },
+    {
+      "transactionId": "546a41cb-4d99-484f-9695-220b366e1a5e",
+      "executedAt": "2026-06-28T15:27:07.000Z",
+      "type": "buy",
+      "priceCurrency": "EUR",
+      "priceAmount": "53064",
+      "sentCurrency": "EUR",
+      "sentAmount": "199.5",
+      "receivedCurrency": "BTC",
+      "receivedAmount": "0.00375962",
+      "feesCurrency": "EUR",
+      "feesAmount": "0.5",
+      "address": null
+    },
+    {
+      "transactionId": "3c412aa7-0ec2-42b4-8e12-426d5af52afb",
+      "executedAt": "2026-06-30T21:09:48.000Z",
+      "type": "buy",
+      "priceCurrency": "EUR",
+      "priceAmount": "51683",
+      "sentCurrency": "EUR",
+      "sentAmount": "399",
+      "receivedCurrency": "BTC",
+      "receivedAmount": "0.00772019",
+      "feesCurrency": "EUR",
+      "feesAmount": "1",
+      "address": null
+    },
     {
       "transactionId": "77e2b47e-bb8a-463d-8dc8-fad52b03b4c5",
       "executedAt": "2026-07-30T10:53:31.000Z",
@@ -37,34 +84,34 @@
   ],
   "price_check": [
     {
-      "datum": "2026-08-03 06:01",
-      "price_aus_trades": 54410.0,
-      "sent_durch_received": 54410.0,
-      "sent_minus_fee_durch_received": 54270.0
+      "datum": "2025-05-30 06:00",
+      "price_aus_trades": 93650.0,
+      "sent_durch_received": 93650.0,
+      "sent_minus_fee_durch_received": 93412.1
     },
     {
-      "datum": "2026-08-03 06:01",
-      "price_aus_trades": 54412.0,
-      "sent_durch_received": 54412.0,
-      "sent_minus_fee_durch_received": 54276.84
+      "datum": "2025-05-29 06:00",
+      "price_aus_trades": 95796.0,
+      "sent_durch_received": 95796.0,
+      "sent_minus_fee_durch_received": 95553.58
     },
     {
-      "datum": "2026-08-02 06:01",
-      "price_aus_trades": 55017.0,
-      "sent_durch_received": 55017.0,
-      "sent_minus_fee_durch_received": 54879.08
+      "datum": "2025-05-28 06:00",
+      "price_aus_trades": 96346.0,
+      "sent_durch_received": 96346.0,
+      "sent_minus_fee_durch_received": 96101.64
     },
     {
-      "datum": "2026-08-01 06:01",
-      "price_aus_trades": 54643.0,
-      "sent_durch_received": 54643.0,
-      "sent_minus_fee_durch_received": 54506.04
+      "datum": "2025-05-27 06:00",
+      "price_aus_trades": 95794.0,
+      "sent_durch_received": 95794.0,
+      "sent_minus_fee_durch_received": 95549.58
     },
     {
-      "datum": "2026-07-31 06:01",
-      "price_aus_trades": 55868.0,
-      "sent_durch_received": 55868.0,
-      "sent_minus_fee_durch_received": 55727.87
+      "datum": "2025-05-26 06:00",
+      "price_aus_trades": 96160.0,
+      "sent_durch_received": 96160.0,
+      "sent_minus_fee_durch_received": 95915.87
     }
   ]
 }
