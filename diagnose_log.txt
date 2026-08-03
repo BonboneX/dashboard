@@ -1,5 +1,5 @@
 ==========================================================================
-BITVAVO DIAGNOSE  2026-08-03T21:48:33.247304+00:00
+BITVAVO DIAGNOSE  2026-08-03T21:56:04.353137+00:00
   Quelle : BonboneX/dashboard/btc_data.json @ main
   Ziel   : BonboneX/dashboard @ main
 ==========================================================================
@@ -8,28 +8,56 @@ BITVAVO DIAGNOSE  2026-08-03T21:48:33.247304+00:00
     0.48406167 BTC
 
 [2] /account/history abrufen
-   Seite 1/1 → 37 Einträge
-    37 Transaktionen gesamt, davon 34 mit BTC-Bewegung
-    Summe: 0.10331696 BTC   (Abweichung zum Bestand: +0.38074471)
+   2025-01-01 → 2025-01-26: 0 Einträge (1 Seite(n))
+   2025-01-26 → 2025-02-20: 0 Einträge (1 Seite(n))
+   2025-02-20 → 2025-03-17: 0 Einträge (1 Seite(n))
+   2025-03-17 → 2025-04-11: 0 Einträge (1 Seite(n))
+   2025-04-11 → 2025-05-06: 0 Einträge (1 Seite(n))
+   2025-05-06 → 2025-05-31: 26 Einträge (1 Seite(n))
+   2025-05-31 → 2025-06-25: 27 Einträge (1 Seite(n))
+   2025-06-25 → 2025-07-20: 27 Einträge (1 Seite(n))
+   2025-07-20 → 2025-08-14: 26 Einträge (1 Seite(n))
+   2025-08-14 → 2025-09-08: 27 Einträge (1 Seite(n))
+   2025-09-08 → 2025-10-03: 30 Einträge (1 Seite(n))
+   2025-10-03 → 2025-10-28: 22 Einträge (1 Seite(n))
+   2025-10-28 → 2025-11-22: 8 Einträge (1 Seite(n))
+   2025-11-22 → 2025-12-17: 28 Einträge (1 Seite(n))
+   2025-12-17 → 2026-01-11: 22 Einträge (1 Seite(n))
+   2026-01-11 → 2026-02-05: 42 Einträge (1 Seite(n))
+   2026-02-05 → 2026-03-02: 24 Einträge (1 Seite(n))
+   2026-03-02 → 2026-03-27: 34 Einträge (1 Seite(n))
+   2026-03-27 → 2026-04-21: 26 Einträge (1 Seite(n))
+   2026-04-21 → 2026-05-16: 13 Einträge (1 Seite(n))
+   2026-05-16 → 2026-06-10: 7 Einträge (1 Seite(n))
+   2026-06-10 → 2026-07-05: 35 Einträge (1 Seite(n))
+   2026-07-05 → 2026-07-30: 30 Einträge (1 Seite(n))
+   2026-07-30 → 2026-08-03: 7 Einträge (1 Seite(n))
+   Gesamt nach Deduplizierung: 461
+    461 Transaktionen gesamt, davon 402 mit BTC-Bewegung
+    Summe: 0.48406167 BTC   (Abweichung zum Bestand: +0.00000000)
 
     Aufschlüsselung nach Typ:
-      buy                            34x  +0.10331696 BTC    5,785.46 EUR
+      buy                           401x  +0.48517760 BTC   32,611.84 EUR
+      sell                            1x  -0.00111593 BTC   98,088.00 EUR
 
 [3] btc_data.json aus GitHub laden
     398 Trades, Summe 0.46175844 BTC
     → Lücke gegenüber Bitvavo: +0.02230323 BTC
 
-[4] In /account/history, aber NICHT in der JSON: 1
+[4] In /account/history, aber NICHT in der JSON: 4
     Datum (UTC)          Typ                                 BTC        EUR  Kurs
+    2026-06-24 18:11:27  buy                         +0.00377596     199.50  52,834
+    2026-06-28 15:27:07  buy                         +0.00375962     199.50  53,064
+    2026-06-30 21:09:48  buy                         +0.00772019     399.00  51,683
     2026-07-30 10:53:31  buy                         +0.00704746     399.00  56,616
 
-    Summe fehlend:    +0.00704746 BTC
+    Summe fehlend:    +0.02230323 BTC
     Erwartete Lücke:  +0.02230323 BTC
-    ==> Rest ungeklärt, Typ-Aufschlüsselung oben prüfen ⚠️
+    ==> vollständig erklärt ✅
 
 [5] Kurs-Gegenprobe (history vs. bereits bekannter Trade):
-    2026-08-03 06:01 | /trades:  54,410.00 | sent/received:  54,410.00 | (sent-fee)/received:  54,270.00
-    2026-08-03 06:01 | /trades:  54,412.00 | sent/received:  54,412.00 | (sent-fee)/received:  54,276.84
-    2026-08-02 06:01 | /trades:  55,017.00 | sent/received:  55,017.00 | (sent-fee)/received:  54,879.08
-    2026-08-01 06:01 | /trades:  54,643.00 | sent/received:  54,643.00 | (sent-fee)/received:  54,506.04
-    2026-07-31 06:01 | /trades:  55,868.00 | sent/received:  55,868.00 | (sent-fee)/received:  55,727.87
+    2025-05-30 06:00 | /trades:  93,650.00 | sent/received:  93,650.00 | (sent-fee)/received:  93,412.10
+    2025-05-29 06:00 | /trades:  95,796.00 | sent/received:  95,796.00 | (sent-fee)/received:  95,553.58
+    2025-05-28 06:00 | /trades:  96,346.00 | sent/received:  96,346.00 | (sent-fee)/received:  96,101.64
+    2025-05-27 06:00 | /trades:  95,794.00 | sent/received:  95,794.00 | (sent-fee)/received:  95,549.58
+    2025-05-26 06:00 | /trades:  96,160.00 | sent/received:  96,160.00 | (sent-fee)/received:  95,915.87
