@@ -1,11 +1,11 @@
 ==========================================================================
-BITVAVO DIAGNOSE  2026-08-03T22:00:24.538837+00:00
+BITVAVO DIAGNOSE  2026-08-03T22:05:25.861659+00:00
   Quelle : BonboneX/dashboard/btc_data.json @ main
   Ziel   : BonboneX/dashboard @ main
 ==========================================================================
 
 [1] Bestand laut /balance
-    0.48406167 BTC
+    0.48768084 BTC
 
 [2] /account/history abrufen
    2025-01-01 → 2025-01-26: 0 Einträge (1 Seite(n))
@@ -31,28 +31,24 @@ BITVAVO DIAGNOSE  2026-08-03T22:00:24.538837+00:00
    2026-05-16 → 2026-06-10: 7 Einträge (1 Seite(n))
    2026-06-10 → 2026-07-05: 35 Einträge (1 Seite(n))
    2026-07-05 → 2026-07-30: 30 Einträge (1 Seite(n))
-   2026-07-30 → 2026-08-03: 7 Einträge (1 Seite(n))
-   Gesamt nach Deduplizierung: 461
-    461 Transaktionen gesamt, davon 402 mit BTC-Bewegung
-    Summe: 0.48406167 BTC   (Abweichung zum Bestand: +0.00000000)
+   2026-07-30 → 2026-08-03: 8 Einträge (1 Seite(n))
+   Gesamt nach Deduplizierung: 462
+    462 Transaktionen gesamt, davon 403 mit BTC-Bewegung
+    Summe: 0.48768084 BTC   (Abweichung zum Bestand: +0.00000000)
 
     Aufschlüsselung nach Typ:
-      buy                           401x  +0.48517760 BTC   32,611.84 EUR
+      buy                           402x  +0.48879677 BTC   32,811.34 EUR
       sell                            1x  -0.00111593 BTC   98,088.00 EUR
 
 [3] btc_data.json aus GitHub laden
-    398 Trades, Summe 0.46175844 BTC
-    → Lücke gegenüber Bitvavo: +0.02230323 BTC
+    403 Trades, Summe 0.48768084 BTC
+    → Lücke gegenüber Bitvavo: +0.00000000 BTC
 
-[4] In /account/history, aber NICHT in der JSON: 4
+[4] In /account/history, aber NICHT in der JSON: 0
     Datum (UTC)          Typ                                 BTC        EUR  Kurs
-    2026-06-24 18:11:27  buy                         +0.00377596     199.50  52,834
-    2026-06-28 15:27:07  buy                         +0.00375962     199.50  53,064
-    2026-06-30 21:09:48  buy                         +0.00772019     399.00  51,683
-    2026-07-30 10:53:31  buy                         +0.00704746     399.00  56,616
 
-    Summe fehlend:    +0.02230323 BTC
-    Erwartete Lücke:  +0.02230323 BTC
+    Summe fehlend:    +0.00000000 BTC
+    Erwartete Lücke:  +0.00000000 BTC
     ==> vollständig erklärt ✅
 
 [5] Kurs-Gegenprobe (history vs. bereits bekannter Trade):
