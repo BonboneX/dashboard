@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-08-12T06:01:22.930581+00:00",
+  "timestamp": "2026-08-13T06:01:12.593425+00:00",
   "btc_balance": 0.51985217,
   "btc_computed": 0.51985217,
   "btc_delta": -0.0,
-  "btc_price_eur": 55260.0,
-  "btc_price_usd": 63810.0,
+  "btc_price_eur": 55371.0,
+  "btc_price_usd": 63842.0,
   "zone": "Normal \u2014 aktuelle Zone",
   "multiplier": 1.0,
   "daily_buy_eur": 200.0,
