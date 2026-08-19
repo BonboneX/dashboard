@@ -1,14 +1,31 @@
 {
-  "timestamp": "2026-08-18T06:01:50.780400+00:00",
-  "btc_balance": 0.54169373,
-  "btc_computed": 0.54169373,
+  "timestamp": "2026-08-19T06:01:38.962753+00:00",
+  "btc_balance": 0.54529552,
+  "btc_computed": 0.54529552,
   "btc_delta": 0.0,
-  "btc_price_eur": 55421.0,
-  "btc_price_usd": 64187.0,
+  "btc_price_eur": 55410.0,
+  "btc_price_usd": 64253.0,
   "zone": "Normal \u2014 aktuelle Zone",
   "multiplier": 1.0,
   "daily_buy_eur": 200.0,
   "trades": [
+    {
+      "id": "5f1d14d7-e7cd-4c54-8166-54174b99673b",
+      "timestamp": 1787119277137,
+      "market": "BTC-EUR",
+      "side": "buy",
+      "amount": "0.00360179",
+      "price": "55389.00",
+      "fee": "0.50045369",
+      "feeCurrency": "EUR",
+      "settled": true,
+      "source": "account_history",
+      "zone": "Normal \u2014 aktuelle Zone",
+      "multiplier": 1.0,
+      "btc_price_usd": 64253.0,
+      "daily_buy_eur": 200.0,
+      "logic_timestamp": "2026-08-19T06:01:38.896702+00:00"
+    },
     {
       "id": "cfb3f9ba-b32b-4b7f-b2fe-2f59918b75f4",
       "timestamp": 1787032889673,
@@ -5784,6 +5801,7 @@
     "2026-08-14": 54983.57862266812,
     "2026-08-15": 54460.38575369107,
     "2026-08-16": 54470.63489151282,
-    "2026-08-17": 54306.131131399394
+    "2026-08-17": 54306.131131399394,
+    "2026-08-18": 55647.74594337826
   }
 }
