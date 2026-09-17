@@ -1,14 +1,60 @@
 {
-  "timestamp": "2026-09-16T06:01:18.996688+00:00",
-  "btc_balance": 0.58855062,
-  "btc_computed": 0.58855062,
+  "timestamp": "2026-09-17T06:01:39.983865+00:00",
+  "btc_balance": 0.59155995,
+  "btc_computed": 0.59155995,
   "btc_delta": 0.0,
-  "btc_price_eur": 65808.0,
-  "btc_price_usd": 75830.0,
+  "btc_price_eur": 66509.0,
+  "btc_price_usd": 76247.0,
   "zone": "Reduziert \u2014 noch hoch bewertet",
   "multiplier": 0.5,
   "daily_buy_eur": 100.0,
   "trades": [
+    {
+      "id": "31456c62-dcd1-46e7-b5da-c189c903a207",
+      "timestamp": 1789624878356,
+      "market": "BTC-EUR",
+      "side": "buy",
+      "amount": "0.00134952",
+      "price": "66505.00",
+      "fee": "0.2201724",
+      "feeCurrency": "EUR",
+      "settled": true,
+      "source": "account_history",
+      "zone": "Reduziert \u2014 noch hoch bewertet",
+      "multiplier": 0.5,
+      "btc_price_usd": 76247.0,
+      "daily_buy_eur": 100.0,
+      "logic_timestamp": "2026-09-17T06:01:39.902341+00:00"
+    },
+    {
+      "id": "d4c5e6f8-e951-4bdf-9f61-d33c93ed23cb",
+      "timestamp": 1789624878356,
+      "market": "BTC-EUR",
+      "side": "buy",
+      "amount": "0.00015036",
+      "price": "66504.00",
+      "fee": "0.03045856",
+      "feeCurrency": "EUR",
+      "settled": true,
+      "source": "account_history",
+      "zone": "Reduziert \u2014 noch hoch bewertet",
+      "multiplier": 0.5,
+      "btc_price_usd": 76247.0,
+      "daily_buy_eur": 100.0,
+      "logic_timestamp": "2026-09-17T06:01:39.902341+00:00"
+    },
+    {
+      "id": "f6c75f21-ced7-42ab-8333-0648368df449",
+      "timestamp": 1789543879000,
+      "market": "BTC-EUR",
+      "side": "buy",
+      "amount": "0.00150945",
+      "price": "66083.67",
+      "fee": "0.25",
+      "feeCurrency": "EUR",
+      "settled": true,
+      "source": "account_history"
+    },
     {
       "id": "1f9a77fa-3f99-4981-abca-be490a9832bb",
       "timestamp": 1789538457285,
@@ -6296,6 +6342,7 @@
     "2026-09-12": 66534.00598733469,
     "2026-09-13": 66593.34173406562,
     "2026-09-14": 66260.88178904704,
-    "2026-09-15": 67694.60467044203
+    "2026-09-15": 67694.60467044203,
+    "2026-09-16": 65511.34384978288
   }
 }
