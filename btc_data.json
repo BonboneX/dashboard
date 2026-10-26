@@ -1,12 +1,50 @@
 {
-  "timestamp": "2026-10-25T06:02:01.732963",
-  "btc_balance": 0.71828507,
-  "btc_price_eur": 71888.0,
-  "btc_price_usd": 80499.0,
+  "timestamp": "2026-10-26T06:01:46.378305",
+  "btc_balance": 0.72177446,
+  "btc_price_eur": 71446.0,
+  "btc_price_usd": 80164.0,
   "zone": "Fix \u2014 250 \u20ac taeglich",
   "multiplier": 1.0,
   "daily_buy_eur": 250.0,
   "trades": [
+    {
+      "id": "00000000-0000-0431-0000-0000038d15f8",
+      "orderId": "00000000-0000-0431-0100-000bd81b3974",
+      "timestamp": 1792994502195,
+      "market": "BTC-EUR",
+      "side": "buy",
+      "amount": "0.00239263",
+      "price": "71465",
+      "taker": true,
+      "fee": "0.43069705",
+      "feeCurrency": "EUR",
+      "settled": true,
+      "operatorId": 1001,
+      "zone": "Fix \u2014 250 \u20ac taeglich",
+      "multiplier": 1.0,
+      "btc_price_usd": 80164.0,
+      "daily_buy_eur": 250.0,
+      "logic_timestamp": "2026-10-26T06:01:46.377193"
+    },
+    {
+      "id": "00000000-0000-0431-0000-0000038d15f7",
+      "orderId": "00000000-0000-0431-0100-000bd81b3974",
+      "timestamp": 1792994502195,
+      "market": "BTC-EUR",
+      "side": "buy",
+      "amount": "0.00109676",
+      "price": "71465",
+      "taker": true,
+      "fee": "0.2000466",
+      "feeCurrency": "EUR",
+      "settled": true,
+      "operatorId": 1001,
+      "zone": "Fix \u2014 250 \u20ac taeglich",
+      "multiplier": 1.0,
+      "btc_price_usd": 80164.0,
+      "daily_buy_eur": 250.0,
+      "logic_timestamp": "2026-10-26T06:01:46.377193"
+    },
     {
       "id": "00000000-0000-0431-0000-0000038cc3fc",
       "orderId": "00000000-0000-0431-0100-000bd0b2c935",
@@ -12780,6 +12818,7 @@
     "2026-10-21": 73884.45739183653,
     "2026-10-22": 74846.24990354716,
     "2026-10-23": 72477.33832576385,
-    "2026-10-24": 72401.4948047706
+    "2026-10-24": 72401.4948047706,
+    "2026-10-25": 72126.50530116288
   }
 }
